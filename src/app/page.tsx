@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import Layout from '@/layouts/Layout';
-import Hero from './sections/hero';
-import { MainBuild } from './sections/main-build';
-import LookBackGraph from './sections/lookback';
+import Layout from "@/layouts/Layout";
+import Hero from "./sections/hero";
+import { MainBuild } from "./sections/main-build";
+import LookBackGraph from "./sections/lookback";
 
 export default function Home() {
   return (

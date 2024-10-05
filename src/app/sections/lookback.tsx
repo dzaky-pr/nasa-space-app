@@ -1,74 +1,166 @@
-import { useState } from 'react';
-import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, Scatter } from 'recharts';
+"use client";
 
-// Cosmology parameters
-const H0 = 70; // Hubble constant in km/s/Mpc
-const omegaM = 0.3; // Matter density parameter
-const omegaLambda = 0.7; // Dark energy density parameter
+import { useState } from "react";
+import { TrendingUp } from "lucide-react";
+import * as RechartsPrimitive from "recharts";
+import {
+  CartesianGrid,
+  Line,
+  LineChart,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Scatter,
+} from "recharts";
 
-// Function to calculate Hubble parameter
-function hubbleParameter(z: number) {
-  return H0 * Math.sqrt(omegaM * Math.pow(1 + z, 3) + omegaLambda);
-}
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/Card";
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/Chart";
 
-// Function to calculate look-back time for a given redshift
-function lookbackTime(z: number) {
-  const dz = 0.1; // Small increment for precision
-  let time = 0;
+// Cosmic events data
+const cosmicEvents = [
+  { event: "Inflation", time: 13.8, redshift: 1000 },
+  { event: "First Particles", time: 13.7, redshift: 100 },
+  { event: "First Nuclei", time: 13.7, redshift: 20 },
+  { event: "First Light", time: 13.42, redshift: 1100 },
+  { event: "First Stars", time: 13.6, redshift: 15 },
+  { event: "Galaxies & Dark Matter", time: 13.4, redshift: 10 },
+  { event: "Dark Energy", time: 3.8, redshift: 0.5 },
+  { event: "Today", time: 0, redshift: 0 },
+];
 
-  for (let zPrime = 0; zPrime <= z; zPrime += dz) {
-    time += dz / (hubbleParameter(zPrime) * (1 + zPrime));
+// Chart config to define colors for each line
+const chartConfig = {
+  time: {
+    label: "Time (Gyr)",
+    color: "hsl(var(--chart-1))",
+  },
+} satisfies ChartConfig;
+
+const CustomTooltip = ({
+  active,
+  payload,
+}: React.ComponentProps<typeof RechartsPrimitive.Tooltip>) => {
+  if (active && payload && payload.length) {
+    const { event, time, redshift } = payload[0].payload;
+    return (
+      <div className="p-2 bg-white text-gray-800 border rounded shadow-md">
+        <p className="font-bold">{event}</p>
+        <p>Time: {time.toFixed(2)} Billion Years Ago</p>
+        <p>Redshift: z={redshift}</p>
+      </div>
+    );
   }
 
-  return (time * 978.5) / H0; // Convert to billion years (Gyr)
-}
+  return null;
+};
 
-function LookBackGraph() {
-  const [redshift, setRedshift] = useState(0);
+export function LookBackGraph() {
+  const [yearIndex, setYearIndex] = useState(0);
 
-  // Function to handle slider value change
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  const filteredData = cosmicEvents.slice(0, yearIndex);
+
   const handleSliderChange = (event: any) => {
-    setRedshift(parseFloat(event.target.value));
+    setYearIndex(parseInt(event.target.value));
   };
 
-  // Generate redshift data points with small increments for accuracy
-  const redshiftData = Array.from({ length: 200000 }, (_, i) => {
-    const z = i / 10000; // Increments of 0.0001
-    return { redshift: z, time: lookbackTime(z) };
-  });
-
-  // Calculate the current look-back time for the slider's redshift
-  const currentLookBackTime = lookbackTime(redshift);
-
   return (
-    <>
-      {/* Line Chart with Look-back Time */}
-      <LineChart width={600} height={400} data={redshiftData}>
-        <XAxis
-          dataKey="redshift"
-          domain={[0, 20]} // X-axis range from 0 to 20
-          tickCount={11} // Custom tick count
-          label={{ value: 'Redshift (z)', position: 'insideBottom' }}
-        />
-        <YAxis
-          domain={[0, 13.5]} // Y-axis range up to 13.5 billion years
-          tickCount={14}
-          label={{ value: 'Look-back Time (Gyr)', angle: -90, position: 'insideLeft' }}
-        />
-        <Tooltip />
-        <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-        <Line type="monotone" dataKey="time" stroke="#8884d8" />
+    <Card className="text-white max-w-4xl border-gray-700 mx-auto mt-20">
+      <CardHeader>
+        <CardTitle>Cosmic Lookback Chart</CardTitle>
+        <CardDescription>Events from the Big Bang to Today</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <ChartContainer config={chartConfig}>
+          <LineChart
+            accessibilityLayer
+            data={filteredData}
+            margin={{
+              left: 12,
+              right: 12,
+            }}
+          >
+            <CartesianGrid vertical={false} />
+            {/* Redshift on the X axis */}
+            <XAxis
+              dataKey="redshift"
+              tickLine={false}
+              axisLine={false}
+              tickMargin={8}
+              label={{
+                value: "Redshift (z)",
+                position: "insideBottom",
+              }}
+              tickFormatter={(value) => `z = ${value}`}
+            />
 
-        {/* Dot that moves based on the slider value */}
-        <Scatter data={[{ redshift, time: currentLookBackTime }]} fill="red" />
-      </LineChart>
+            <YAxis
+              domain={[0, 14]}
+              tickLine={false}
+              axisLine={false}
+              tickMargin={8}
+              label={{
+                value: "Time (Billion Years)",
+                angle: -90,
+                position: "insideLeft",
+              }}
+            />
 
-      {/* Slider to change the redshift value */}
-      <input type="range" min="0" max="20" step="0.0001" value={redshift} onChange={handleSliderChange} style={{ width: '100%', marginTop: '20px' }} />
-      <p>Selected Redshift (z): {redshift.toFixed(4)}</p>
-      <p>Look-back Time: {currentLookBackTime.toFixed(6)} Gyr</p>
-    </>
+            <ChartTooltip cursor={false} content={<CustomTooltip />} />
+
+            <Line
+              dataKey="time"
+              type="natural"
+              stroke="var(--color-time)"
+              strokeWidth={2}
+              dot={{
+                fill: "var(--color-time)",
+              }}
+              activeDot={{
+                r: 6,
+              }}
+            />
+
+            <Scatter data={filteredData} fill="var(--color-time)" />
+          </LineChart>
+        </ChartContainer>
+      </CardContent>
+
+      <CardContent>
+        <input
+          type="range"
+          min="1"
+          max={cosmicEvents.length}
+          step="1"
+          value={yearIndex}
+          onChange={handleSliderChange}
+          style={{ width: "100%" }}
+        />
+        <p>
+          Showing events up to: {cosmicEvents[yearIndex - 1]?.event || "Today"}
+        </p>
+      </CardContent>
+
+      <CardFooter className="flex-col items-start gap-2 text-sm">
+        <div className="flex gap-2 font-medium leading-none">
+          Showing Cosmic Events Over Time
+        </div>
+        <div className="leading-none text-muted-foreground">
+          From 13.8 billion years ago to today.
+        </div>
+      </CardFooter>
+    </Card>
   );
 }
 
