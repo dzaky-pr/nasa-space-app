@@ -95,7 +95,8 @@
     "ignore": [
       "**/.lintstagedrc.js",
       "**/tailwind.config.js",
-      "**/.prettierrc.js"
+      "**/.prettierrc.js",
+      "public/build/*"
     ]
   },
   "javascript": {
