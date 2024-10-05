@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import clsxm from '@/lib/clsxm';
-import createGlobe, { COBEOptions } from 'cobe';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import clsxm from "@/lib/clsxm";
+import createGlobe, { COBEOptions } from "cobe";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const GLOBE_CONFIG: COBEOptions = {
   width: 800,
@@ -33,7 +33,10 @@ const GLOBE_CONFIG: COBEOptions = {
   ],
 };
 
-export function Globe({ className, config = GLOBE_CONFIG }: { className?: string; config?: COBEOptions }) {
+export function Globe({
+  className,
+  config = GLOBE_CONFIG,
+}: { className?: string; config?: COBEOptions }) {
   let phi = 0;
   let width = 0;
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -45,7 +48,7 @@ export function Globe({ className, config = GLOBE_CONFIG }: { className?: string
   const updatePointerInteraction = (value: any) => {
     pointerInteracting.current = value;
     if (canvasRef.current) {
-      canvasRef.current.style.cursor = value ? 'grabbing' : 'grab';
+      canvasRef.current.style.cursor = value ? "grabbing" : "grab";
     }
   };
 
@@ -66,7 +69,7 @@ export function Globe({ className, config = GLOBE_CONFIG }: { className?: string
       state.width = width * 2;
       state.height = width * 2;
     },
-    [r]
+    [r],
   );
 
   const onResize = () => {
@@ -76,7 +79,7 @@ export function Globe({ className, config = GLOBE_CONFIG }: { className?: string
   };
 
   useEffect(() => {
-    window.addEventListener('resize', onResize);
+    window.addEventListener("resize", onResize);
     onResize();
 
     const globe = createGlobe(canvasRef.current!, {
@@ -87,20 +90,33 @@ export function Globe({ className, config = GLOBE_CONFIG }: { className?: string
     });
 
     // biome-ignore lint/suspicious/noAssignInExpressions: <explanation>
-    setTimeout(() => (canvasRef.current!.style.opacity = '1'));
+    setTimeout(() => (canvasRef.current!.style.opacity = "1"));
     return () => globe.destroy();
   }, []);
 
   return (
-    <div className={clsxm('absolute inset-0 mx-auto aspect-[1/1] w-full max-w-[600px]', className)}>
+    <div
+      className={clsxm(
+        "absolute inset-0 mx-auto aspect-[1/1] w-full max-w-[600px]",
+        className,
+      )}
+    >
       <canvas
-        className={clsxm('size-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]')}
+        className={clsxm(
+          "size-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]",
+        )}
         ref={canvasRef}
-        onPointerDown={(e) => updatePointerInteraction(e.clientX - pointerInteractionMovement.current)}
+        onPointerDown={(e) =>
+          updatePointerInteraction(
+            e.clientX - pointerInteractionMovement.current,
+          )
+        }
         onPointerUp={() => updatePointerInteraction(null)}
         onPointerOut={() => updatePointerInteraction(null)}
         onMouseMove={(e) => updateMovement(e.clientX)}
-        onTouchMove={(e) => e.touches[0] && updateMovement(e.touches[0].clientX)}
+        onTouchMove={(e) =>
+          e.touches[0] && updateMovement(e.touches[0].clientX)
+        }
       />
     </div>
   );

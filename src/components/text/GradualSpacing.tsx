@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import clsxm from '@/lib/clsxm';
-import { AnimatePresence, motion, Variants } from 'framer-motion';
+import clsxm from "@/lib/clsxm";
+import { AnimatePresence, Variants, motion } from "framer-motion";
 
 interface GradualSpacingProps {
   text: string;
@@ -24,9 +24,17 @@ export function GradualSpacing({
   return (
     <div className="flex justify-center space-x-1">
       <AnimatePresence>
-        {text.split('').map((char, i) => (
-          <motion.h1 key={i} initial="hidden" animate="visible" exit="hidden" variants={framerProps} transition={{ duration, delay: i * delayMultiple }} className={clsxm('drop-shadow-sm ', className)}>
-            {char === ' ' ? <span>&nbsp;</span> : char}
+        {text.split("").map((char, i) => (
+          <motion.h1
+            key={i}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={framerProps}
+            transition={{ duration, delay: i * delayMultiple }}
+            className={clsxm("drop-shadow-sm ", className)}
+          >
+            {char === " " ? <span>&nbsp;</span> : char}
           </motion.h1>
         ))}
       </AnimatePresence>
