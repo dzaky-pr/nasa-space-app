@@ -6,9 +6,9 @@ import {
   CartesianGrid,
   Line,
   LineChart,
-  Scatter,
   XAxis,
   YAxis,
+  Scatter,
 } from "recharts";
 
 import {
@@ -64,13 +64,19 @@ const CustomTooltip = ({
 };
 
 export function LookBackGraph() {
-  const [yearIndex, setYearIndex] = useState(0);
+  const [yearIndex, setYearIndex] = useState(4);
 
   const filteredData = cosmicEvents.slice(0, yearIndex);
 
   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   const handleSliderChange = (event: any) => {
     setYearIndex(parseInt(event.target.value));
+  };
+
+  const error = console.error;
+  console.error = (...args: any) => {
+    if (/defaultProps/.test(args[0])) return;
+    error(...args);
   };
 
   return (
