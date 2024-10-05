@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import { ArrowRightIcon } from '@radix-ui/react-icons';
 
 // import Button from '@/components/buttons/Button';
 import clsxm from '@/lib/clsxm';
@@ -9,7 +8,7 @@ const BentoGrid = ({ children, className }: { children: ReactNode; className?: s
 };
 
 // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-const BentoCard = ({ name, className, background, Icon, description, href, cta }: { name: string; className: string; background: ReactNode; Icon: any; description: string; href: string; cta: string }) => (
+const BentoCard = ({ name, className, background, Icon, description }: { name: string; className: string; background: ReactNode; Icon: any; description: string; href: string; cta: string }) => (
   <div
     key={name}
     className={clsxm(
@@ -28,10 +27,10 @@ const BentoCard = ({ name, className, background, Icon, description, href, cta }
 
     <div className={clsxm('pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100')}>
       {/* <Button variant="ghost" asChild size="sm" className="pointer-events-auto"> */}
-      <a className="text-white" href={href}>
+      {/* <a className="text-white" href={href}>
         {cta}
         <ArrowRightIcon className="ml-2 h-4 w-4" />
-      </a>
+      </a> */}
       {/* </Button> */}
     </div>
     <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300  group-hover:bg-neutral-800/10" />

@@ -1,4 +1,3 @@
-import Button from '@/components/buttons/Button';
 import ButtonLink from '@/components/links/ButtonLink';
 import { NumberTicker } from '@/components/text/NumberTicker';
 import * as React from 'react';
