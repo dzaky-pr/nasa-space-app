@@ -60,7 +60,7 @@ export function LookBackGraph() {
   };
 
   return (
-    <section className="mx-auto p-4  max-w-screen-xl">
+    <section id="cosmic-chart" className="mx-auto p-4  max-w-screen-xl">
       <Card className="text-white   border-gray-700 mx-auto mt-2 ">
         <CardHeader>
           <CardTitle>Cosmic Lookback Chart</CardTitle>

@@ -9,7 +9,7 @@ export function MainBuild() {
   });
 
   return (
-    <section className="z-[999] flex justify-center  max-w-screen-xl flex-col items-center w-full h-full mx-auto p-4">
+    <section id="main-build" className="z-[999] flex justify-center  max-w-screen-xl flex-col items-center w-full h-full mx-auto p-4">
       {!isLoaded && <p className="text-white">Loading Application... {Math.round(loadingProgression * 100)}%</p>}
       <Unity
         unityProvider={unityProvider}

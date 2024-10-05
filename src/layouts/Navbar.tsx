@@ -1,8 +1,10 @@
 import NextImage from '@/components/NextImage';
+import { NAVIGATION_MENU } from '@/contents/navigation';
+import Link from 'next/link';
 
 export default function Navbar() {
   return (
-    <nav className="fixed top-0 start-0 z-20 w-full border-gray-200 backdrop-blur-sm py-4">
+    <nav className="fixed top-0 start-0 z-40 w-full border-b-[0.5px] border-gray-400 backdrop-blur-lg py-3">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 ">
         <NextImage src="/logo.png" className="h-full w-fit" height={98} width={122} alt="Neutrack Logo" />
 
@@ -20,31 +22,13 @@ export default function Navbar() {
         </button>
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border  rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0  border-gray-700">
-            <li>
-              <a href="#" className="block py-2 px-3  bg-blue-700 rounded md:bg-transparent md:p-0 text-white md:text-blue-500" aria-current="page">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#" className="block py-2 px-3  rounded  md:border-0  md:p-0 text-white md:hover:text-blue-500 hover:bg-gray-700 hover:text-white md:hover:bg-transparent">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#" className="block py-2 px-3  rounded  md:border-0  md:p-0 text-white md:hover:text-blue-500 hover:bg-gray-700 hover:text-white md:hover:bg-transparent">
-                Services
-              </a>
-            </li>
-            <li>
-              <a href="#" className="block py-2 px-3  rounded  md:border-0  md:p-0 text-white md:hover:text-blue-500 hover:bg-gray-700 hover:text-white md:hover:bg-transparent">
-                Pricing
-              </a>
-            </li>
-            <li>
-              <a href="#" className="block py-2 px-3  rounded  md:border-0  md:p-0 text-white md:hover:text-blue-500 hover:bg-gray-700 hover:text-white md:hover:bg-transparent">
-                Contact
-              </a>
-            </li>
+            {NAVIGATION_MENU.map((item, index) => (
+              <li key={index}>
+                <Link href={item.href} className="block py-2 px-3  rounded  md:border-0  md:p-0 text-white md:hover:text-blue-500 hover:bg-gray-700 hover:text-white md:hover:bg-transparent">
+                  {item.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
