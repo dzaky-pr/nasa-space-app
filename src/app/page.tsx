@@ -1,11 +1,12 @@
-"use client";
+'use client';
 
-import Layout from "@/layouts/Layout";
-import Hero from "./sections/hero";
-import { MainBuild } from "./sections/main-build";
-import ChatBot from "./sections/chatbot";
-import LookBackGraph from "./sections/lookback";
-import World from "./sections/world";
+import Layout from '@/layouts/Layout';
+import Hero from './sections/hero';
+import { MainBuild } from './sections/main-build';
+import ChatBot from './sections/chatbot';
+import LookBackGraph from './sections/lookback';
+import World from './sections/world';
+import { BentoGallery } from './sections/gallery';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <MainBuild />
         <LookBackGraph />
         <World />
+        <BentoGallery />
       </Layout>
     </>
   );

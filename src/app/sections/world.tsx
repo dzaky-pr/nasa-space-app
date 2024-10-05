@@ -1,14 +1,15 @@
-import Button from "@/components/buttons/Button";
-import ButtonLink from "@/components/links/ButtonLink";
-import { NumberTicker } from "@/components/text/NumberTicker";
-import * as React from "react";
-import Globe from "react-globe.gl";
+import Button from '@/components/buttons/Button';
+import ButtonLink from '@/components/links/ButtonLink';
+import { NumberTicker } from '@/components/text/NumberTicker';
+import * as React from 'react';
+import Globe from 'react-globe.gl';
 
-export const GLOBE_TEXTURE =
-  "//unpkg.com/three-globe/example/img/earth-blue-marble.jpg";
+export const GLOBE_TEXTURE = '//unpkg.com/three-globe/example/img/earth-blue-marble.jpg';
 
 export default function World() {
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   const globeElm = React.useRef<any>();
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   const [hoverD, setHoverD] = React.useState<any>();
   const [countries, setCountries] = React.useState({
     total_waste: 0,
@@ -21,13 +22,13 @@ export default function World() {
   });
 
   React.useEffect(() => {
-    fetch("data/countries_with_waste.json")
+    fetch('data/countries_with_waste.json')
       .then((res) => res.json())
       .then((data) => {
         setCountries(data);
       })
       .catch((error) => {
-        console.error("Error fetching data:", error);
+        console.error('Error fetching data:', error);
       });
 
     const handleResize = () => {
@@ -40,16 +41,16 @@ export default function World() {
 
     handleResize();
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, [isMobile]);
 
   return (
     <section>
-      <div className="w-max mx-auto overflow-hidden">
+      <div className="w-max mx-auto  max-w-screen-xl overflow-hidden">
         <Globe
           ref={globeElm}
           onGlobeReady={() => {
@@ -60,8 +61,8 @@ export default function World() {
             }
           }}
           lineHoverPrecision={0}
-          polygonSideColor={() => "rgba(0, 0, 0, 0.8)"}
-          polygonStrokeColor={() => "#111"}
+          polygonSideColor={() => 'rgba(0, 0, 0, 0.8)'}
+          polygonStrokeColor={() => '#111'}
           globeImageUrl={GLOBE_TEXTURE}
           backgroundColor="#000000"
           onPolygonHover={setHoverD}
@@ -70,17 +71,12 @@ export default function World() {
           height={globeSize.height}
           polygonAltitude={(d) => (d === hoverD ? 0.1 : 0.01)}
           polygonsTransitionDuration={300}
+          // biome-ignore lint/suspicious/noExplicitAny: <explanation>
           polygonLabel={(p: any) => {
             return `
             <div class="bg-gray-800 text-white p-4 rounded-xl shadow">
                 <p>${p.properties.NAME}</p>
-                <p>${
-                  p.properties.waste_emission == 0
-                    ? "-"
-                    : new Intl.NumberFormat("en-us").format(
-                        p.properties.waste_emission
-                      ) + " metric tons"
-                }</p>
+                <p>${p.properties.waste_emission == 0 ? '-' : new Intl.NumberFormat('en-us').format(p.properties.waste_emission) + ' metric tons'}</p>
             </div>
           `;
           }}
@@ -93,9 +89,7 @@ export default function World() {
             <NumberTicker value={countries.total_waste} />
           </p>
 
-          <p className="text-gray-300 text-xl md:text-3xl font-semibold">
-            metric tons plastic wastes around the world
-          </p>
+          <p className="text-gray-300 text-xl md:text-3xl font-semibold">metric tons plastic wastes around the world</p>
         </div>
 
         <ButtonLink href="">Save the earth now</ButtonLink>
