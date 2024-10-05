@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { useInView, useMotionValue, useSpring } from "framer-motion";
 import clsxm from "@/lib/clsxm";
+import { useInView, useMotionValue, useSpring } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 export function NumberTicker({
   value,
@@ -42,14 +42,14 @@ export function NumberTicker({
           }).format(Number(latest.toFixed(decimalPlaces)));
         }
       }),
-    [springValue, decimalPlaces]
+    [springValue, decimalPlaces],
   );
 
   return (
     <span
       className={clsxm(
         "inline-block tabular-nums text-white tracking-wider",
-        className
+        className,
       )}
       ref={ref}
     />

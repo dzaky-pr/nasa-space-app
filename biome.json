@@ -8,12 +8,7 @@
     "lineEnding": "lf",
     "lineWidth": 80,
     "attributePosition": "auto",
-    "ignore": [
-      "**/.next",
-      "**/node_modules",
-      "**/package.json",
-      "**/pnpm-lock.yaml"
-    ]
+    "ignore": ["**/.next", "**/node_modules", "**/package.json", "**/pnpm-lock.yaml"]
   },
   "organizeImports": { "enabled": true },
   "linter": {
@@ -92,12 +87,7 @@
         "useValidTypeof": "error"
       }
     },
-    "ignore": [
-      "**/.lintstagedrc.js",
-      "**/tailwind.config.js",
-      "**/.prettierrc.js",
-      "public/build/*"
-    ]
+    "ignore": ["**/.lintstagedrc.js", "**/tailwind.config.js", "**/.prettierrc.js", "**/public/**"]
   },
   "javascript": {
     "formatter": {
