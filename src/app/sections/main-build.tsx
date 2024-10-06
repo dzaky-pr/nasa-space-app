@@ -2,10 +2,11 @@ import { Unity, useUnityContext } from "react-unity-webgl";
 
 export function MainBuild() {
   const { unityProvider, isLoaded, loadingProgression } = useUnityContext({
-    loaderUrl: "build/build-pre-6.loader.js",
-    dataUrl: "build/build-pre-6.data",
-    frameworkUrl: "build/build-pre-6.framework.js",
-    codeUrl: "build/build-pre-6.wasm",
+    loaderUrl: "build/build-1.loader.js",
+    dataUrl:
+      "https://media.githubusercontent.com/media/dzaky-pr/nasa-space-app/main/Build/build-1.data",
+    frameworkUrl: "build/build-1.framework.js",
+    codeUrl: "build/build-1.wasm",
   });
 
   return (
