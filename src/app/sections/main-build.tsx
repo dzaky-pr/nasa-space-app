@@ -4,7 +4,7 @@ export function MainBuild() {
   const { unityProvider, isLoaded, loadingProgression } = useUnityContext({
     loaderUrl: "build/build-1.loader.js",
     dataUrl:
-      "https://raw.githubusercontent.com/dzaky-pr/nasa-space-app/main/build-1.data",
+      "https://media.githubusercontent.com/media/dzaky-pr/nasa-space-app/main/build/build-1.data",
     frameworkUrl: "build/build-1.framework.js",
     codeUrl: "build/build-1.wasm",
   });
