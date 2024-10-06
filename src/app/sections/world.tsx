@@ -3,7 +3,7 @@ import { NumberTicker } from "@/components/text/NumberTicker";
 import dynamic from "next/dynamic";
 import * as React from "react";
 
-const GlobeGl = dynamic(() => import("./GlobeGl"));
+const GlobeGl = dynamic(() => import("./GlobeGl"), { ssr: false });
 
 export default function World() {
   const [countries, setCountries] = React.useState({

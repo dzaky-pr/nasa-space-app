@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import Globe, { GlobeMethods } from "react-globe.gl";
 
@@ -15,7 +17,7 @@ export default function GlobeGl() {
   });
 
   React.useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window != "undefined") {
       setIsMobile(window.innerWidth < 1024);
       setGlobeSize({
         width: (10 / 12) * window.innerWidth,
