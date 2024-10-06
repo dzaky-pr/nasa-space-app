@@ -901,13 +901,13 @@ var unityFramework = (() => {
     var tempDouble;
     var tempI64;
     var ASM_CONSTS = {
-      3854596: function () {
+      3859252: function () {
         return Module.webglContextAttributes.premultipliedAlpha;
       },
-      3854657: function () {
+      3859313: function () {
         return Module.webglContextAttributes.preserveDrawingBuffer;
       },
-      3854721: function () {
+      3859377: function () {
         return Module.webglContextAttributes.powerPreference;
       },
     };
@@ -2425,6 +2425,7 @@ var unityFramework = (() => {
         return 0;
       };
       soundClip.createSourceNode = function () {
+        var self = this;
         var mediaElement = WEBAudio.audioCache.length
           ? WEBAudio.audioCache.pop()
           : new Audio();
@@ -5377,16 +5378,17 @@ var unityFramework = (() => {
                 return intArrayFromString(xhr.responseText || "", true);
               }
             };
-            this.setDataGetter((chunkNum) => {
+            var lazyArray = this;
+            lazyArray.setDataGetter((chunkNum) => {
               var start = chunkNum * chunkSize;
               var end = (chunkNum + 1) * chunkSize - 1;
               end = Math.min(end, datalength - 1);
-              if (typeof this.chunks[chunkNum] == "undefined") {
-                this.chunks[chunkNum] = doXHR(start, end);
+              if (typeof lazyArray.chunks[chunkNum] == "undefined") {
+                lazyArray.chunks[chunkNum] = doXHR(start, end);
               }
-              if (typeof this.chunks[chunkNum] == "undefined")
+              if (typeof lazyArray.chunks[chunkNum] == "undefined")
                 throw new Error("doXHR failed!");
-              return this.chunks[chunkNum];
+              return lazyArray.chunks[chunkNum];
             });
             if (usesGzip || !datalength) {
               chunkSize = datalength = 1;
@@ -14620,22 +14622,6 @@ var unityFramework = (() => {
       return (dynCall_jii = Module["dynCall_jii"] =
         Module["asm"]["dynCall_jii"]).apply(null, arguments);
     });
-    var dynCall_viiji = (Module["dynCall_viiji"] = function () {
-      return (dynCall_viiji = Module["dynCall_viiji"] =
-        Module["asm"]["dynCall_viiji"]).apply(null, arguments);
-    });
-    var dynCall_iiijii = (Module["dynCall_iiijii"] = function () {
-      return (dynCall_iiijii = Module["dynCall_iiijii"] =
-        Module["asm"]["dynCall_iiijii"]).apply(null, arguments);
-    });
-    var dynCall_viifi = (Module["dynCall_viifi"] = function () {
-      return (dynCall_viifi = Module["dynCall_viifi"] =
-        Module["asm"]["dynCall_viifi"]).apply(null, arguments);
-    });
-    var dynCall_iiifii = (Module["dynCall_iiifii"] = function () {
-      return (dynCall_iiifii = Module["dynCall_iiifii"] =
-        Module["asm"]["dynCall_iiifii"]).apply(null, arguments);
-    });
     var dynCall_vijii = (Module["dynCall_vijii"] = function () {
       return (dynCall_vijii = Module["dynCall_vijii"] =
         Module["asm"]["dynCall_vijii"]).apply(null, arguments);
@@ -14644,25 +14630,17 @@ var unityFramework = (() => {
       return (dynCall_iijiii = Module["dynCall_iijiii"] =
         Module["asm"]["dynCall_iijiii"]).apply(null, arguments);
     });
-    var dynCall_iiiidii = (Module["dynCall_iiiidii"] = function () {
-      return (dynCall_iiiidii = Module["dynCall_iiiidii"] =
-        Module["asm"]["dynCall_iiiidii"]).apply(null, arguments);
-    });
     var dynCall_iiiijii = (Module["dynCall_iiiijii"] = function () {
       return (dynCall_iiiijii = Module["dynCall_iiiijii"] =
         Module["asm"]["dynCall_iiiijii"]).apply(null, arguments);
     });
-    var dynCall_vidi = (Module["dynCall_vidi"] = function () {
-      return (dynCall_vidi = Module["dynCall_vidi"] =
-        Module["asm"]["dynCall_vidi"]).apply(null, arguments);
+    var dynCall_viifi = (Module["dynCall_viifi"] = function () {
+      return (dynCall_viifi = Module["dynCall_viifi"] =
+        Module["asm"]["dynCall_viifi"]).apply(null, arguments);
     });
-    var dynCall_viidi = (Module["dynCall_viidi"] = function () {
-      return (dynCall_viidi = Module["dynCall_viidi"] =
-        Module["asm"]["dynCall_viidi"]).apply(null, arguments);
-    });
-    var dynCall_iiiiiiiiii = (Module["dynCall_iiiiiiiiii"] = function () {
-      return (dynCall_iiiiiiiiii = Module["dynCall_iiiiiiiiii"] =
-        Module["asm"]["dynCall_iiiiiiiiii"]).apply(null, arguments);
+    var dynCall_iiifii = (Module["dynCall_iiifii"] = function () {
+      return (dynCall_iiifii = Module["dynCall_iiifii"] =
+        Module["asm"]["dynCall_iiifii"]).apply(null, arguments);
     });
     var dynCall_iifi = (Module["dynCall_iifi"] = function () {
       return (dynCall_iifi = Module["dynCall_iifi"] =
@@ -14680,13 +14658,25 @@ var unityFramework = (() => {
       return (dynCall_vji = Module["dynCall_vji"] =
         Module["asm"]["dynCall_vji"]).apply(null, arguments);
     });
+    var dynCall_fiii = (Module["dynCall_fiii"] = function () {
+      return (dynCall_fiii = Module["dynCall_fiii"] =
+        Module["asm"]["dynCall_fiii"]).apply(null, arguments);
+    });
+    var dynCall_iiiidii = (Module["dynCall_iiiidii"] = function () {
+      return (dynCall_iiiidii = Module["dynCall_iiiidii"] =
+        Module["asm"]["dynCall_iiiidii"]).apply(null, arguments);
+    });
+    var dynCall_vidi = (Module["dynCall_vidi"] = function () {
+      return (dynCall_vidi = Module["dynCall_vidi"] =
+        Module["asm"]["dynCall_vidi"]).apply(null, arguments);
+    });
+    var dynCall_viidi = (Module["dynCall_viidi"] = function () {
+      return (dynCall_viidi = Module["dynCall_viidi"] =
+        Module["asm"]["dynCall_viidi"]).apply(null, arguments);
+    });
     var dynCall_viiiji = (Module["dynCall_viiiji"] = function () {
       return (dynCall_viiiji = Module["dynCall_viiiji"] =
         Module["asm"]["dynCall_viiiji"]).apply(null, arguments);
-    });
-    var dynCall_viiffi = (Module["dynCall_viiffi"] = function () {
-      return (dynCall_viiffi = Module["dynCall_viiffi"] =
-        Module["asm"]["dynCall_viiffi"]).apply(null, arguments);
     });
     var dynCall_fii = (Module["dynCall_fii"] = function () {
       return (dynCall_fii = Module["dynCall_fii"] =
@@ -14703,10 +14693,6 @@ var unityFramework = (() => {
     var dynCall_fifi = (Module["dynCall_fifi"] = function () {
       return (dynCall_fifi = Module["dynCall_fifi"] =
         Module["asm"]["dynCall_fifi"]).apply(null, arguments);
-    });
-    var dynCall_fiii = (Module["dynCall_fiii"] = function () {
-      return (dynCall_fiii = Module["dynCall_fiii"] =
-        Module["asm"]["dynCall_fiii"]).apply(null, arguments);
     });
     var dynCall_viiiiiiiii = (Module["dynCall_viiiiiiiii"] = function () {
       return (dynCall_viiiiiiiii = Module["dynCall_viiiiiiiii"] =
@@ -14833,42 +14819,6 @@ var unityFramework = (() => {
       return (dynCall_vifffi = Module["dynCall_vifffi"] =
         Module["asm"]["dynCall_vifffi"]).apply(null, arguments);
     });
-    var dynCall_iiiifi = (Module["dynCall_iiiifi"] = function () {
-      return (dynCall_iiiifi = Module["dynCall_iiiifi"] =
-        Module["asm"]["dynCall_iiiifi"]).apply(null, arguments);
-    });
-    var dynCall_iiiifii = (Module["dynCall_iiiifii"] = function () {
-      return (dynCall_iiiifii = Module["dynCall_iiiifii"] =
-        Module["asm"]["dynCall_iiiifii"]).apply(null, arguments);
-    });
-    var dynCall_viiiifii = (Module["dynCall_viiiifii"] = function () {
-      return (dynCall_viiiifii = Module["dynCall_viiiifii"] =
-        Module["asm"]["dynCall_viiiifii"]).apply(null, arguments);
-    });
-    var dynCall_vifii = (Module["dynCall_vifii"] = function () {
-      return (dynCall_vifii = Module["dynCall_vifii"] =
-        Module["asm"]["dynCall_vifii"]).apply(null, arguments);
-    });
-    var dynCall_ji = (Module["dynCall_ji"] = function () {
-      return (dynCall_ji = Module["dynCall_ji"] =
-        Module["asm"]["dynCall_ji"]).apply(null, arguments);
-    });
-    var dynCall_fiiffi = (Module["dynCall_fiiffi"] = function () {
-      return (dynCall_fiiffi = Module["dynCall_fiiffi"] =
-        Module["asm"]["dynCall_fiiffi"]).apply(null, arguments);
-    });
-    var dynCall_viiififii = (Module["dynCall_viiififii"] = function () {
-      return (dynCall_viiififii = Module["dynCall_viiififii"] =
-        Module["asm"]["dynCall_viiififii"]).apply(null, arguments);
-    });
-    var dynCall_iidi = (Module["dynCall_iidi"] = function () {
-      return (dynCall_iidi = Module["dynCall_iidi"] =
-        Module["asm"]["dynCall_iidi"]).apply(null, arguments);
-    });
-    var dynCall_ddiii = (Module["dynCall_ddiii"] = function () {
-      return (dynCall_ddiii = Module["dynCall_ddiii"] =
-        Module["asm"]["dynCall_ddiii"]).apply(null, arguments);
-    });
     var dynCall_didi = (Module["dynCall_didi"] = function () {
       return (dynCall_didi = Module["dynCall_didi"] =
         Module["asm"]["dynCall_didi"]).apply(null, arguments);
@@ -14892,6 +14842,62 @@ var unityFramework = (() => {
     var dynCall_fiffi = (Module["dynCall_fiffi"] = function () {
       return (dynCall_fiffi = Module["dynCall_fiffi"] =
         Module["asm"]["dynCall_fiffi"]).apply(null, arguments);
+    });
+    var dynCall_iiiifi = (Module["dynCall_iiiifi"] = function () {
+      return (dynCall_iiiifi = Module["dynCall_iiiifi"] =
+        Module["asm"]["dynCall_iiiifi"]).apply(null, arguments);
+    });
+    var dynCall_iiiiiiiiii = (Module["dynCall_iiiiiiiiii"] = function () {
+      return (dynCall_iiiiiiiiii = Module["dynCall_iiiiiiiiii"] =
+        Module["asm"]["dynCall_iiiiiiiiii"]).apply(null, arguments);
+    });
+    var dynCall_iiiifii = (Module["dynCall_iiiifii"] = function () {
+      return (dynCall_iiiifii = Module["dynCall_iiiifii"] =
+        Module["asm"]["dynCall_iiiifii"]).apply(null, arguments);
+    });
+    var dynCall_viiiifii = (Module["dynCall_viiiifii"] = function () {
+      return (dynCall_viiiifii = Module["dynCall_viiiifii"] =
+        Module["asm"]["dynCall_viiiifii"]).apply(null, arguments);
+    });
+    var dynCall_iiifi = (Module["dynCall_iiifi"] = function () {
+      return (dynCall_iiifi = Module["dynCall_iiifi"] =
+        Module["asm"]["dynCall_iiifi"]).apply(null, arguments);
+    });
+    var dynCall_viiiifi = (Module["dynCall_viiiifi"] = function () {
+      return (dynCall_viiiifi = Module["dynCall_viiiifi"] =
+        Module["asm"]["dynCall_viiiifi"]).apply(null, arguments);
+    });
+    var dynCall_vifii = (Module["dynCall_vifii"] = function () {
+      return (dynCall_vifii = Module["dynCall_vifii"] =
+        Module["asm"]["dynCall_vifii"]).apply(null, arguments);
+    });
+    var dynCall_viiji = (Module["dynCall_viiji"] = function () {
+      return (dynCall_viiji = Module["dynCall_viiji"] =
+        Module["asm"]["dynCall_viiji"]).apply(null, arguments);
+    });
+    var dynCall_ji = (Module["dynCall_ji"] = function () {
+      return (dynCall_ji = Module["dynCall_ji"] =
+        Module["asm"]["dynCall_ji"]).apply(null, arguments);
+    });
+    var dynCall_fiiffi = (Module["dynCall_fiiffi"] = function () {
+      return (dynCall_fiiffi = Module["dynCall_fiiffi"] =
+        Module["asm"]["dynCall_fiiffi"]).apply(null, arguments);
+    });
+    var dynCall_viiififii = (Module["dynCall_viiififii"] = function () {
+      return (dynCall_viiififii = Module["dynCall_viiififii"] =
+        Module["asm"]["dynCall_viiififii"]).apply(null, arguments);
+    });
+    var dynCall_iidi = (Module["dynCall_iidi"] = function () {
+      return (dynCall_iidi = Module["dynCall_iidi"] =
+        Module["asm"]["dynCall_iidi"]).apply(null, arguments);
+    });
+    var dynCall_ddiii = (Module["dynCall_ddiii"] = function () {
+      return (dynCall_ddiii = Module["dynCall_ddiii"] =
+        Module["asm"]["dynCall_ddiii"]).apply(null, arguments);
+    });
+    var dynCall_iiijii = (Module["dynCall_iiijii"] = function () {
+      return (dynCall_iiijii = Module["dynCall_iiijii"] =
+        Module["asm"]["dynCall_iiijii"]).apply(null, arguments);
     });
     var dynCall_iji = (Module["dynCall_iji"] = function () {
       return (dynCall_iji = Module["dynCall_iji"] =
@@ -14933,14 +14939,6 @@ var unityFramework = (() => {
       return (dynCall_vjiiiii = Module["dynCall_vjiiiii"] =
         Module["asm"]["dynCall_vjiiiii"]).apply(null, arguments);
     });
-    var dynCall_iiifi = (Module["dynCall_iiifi"] = function () {
-      return (dynCall_iiifi = Module["dynCall_iiifi"] =
-        Module["asm"]["dynCall_iiifi"]).apply(null, arguments);
-    });
-    var dynCall_viiiifi = (Module["dynCall_viiiifi"] = function () {
-      return (dynCall_viiiifi = Module["dynCall_viiiifi"] =
-        Module["asm"]["dynCall_viiiifi"]).apply(null, arguments);
-    });
     var dynCall_iiiiiiiiiiii = (Module["dynCall_iiiiiiiiiiii"] = function () {
       return (dynCall_iiiiiiiiiiii = Module["dynCall_iiiiiiiiiiii"] =
         Module["asm"]["dynCall_iiiiiiiiiiii"]).apply(null, arguments);
@@ -14960,6 +14958,10 @@ var unityFramework = (() => {
     var dynCall_jijii = (Module["dynCall_jijii"] = function () {
       return (dynCall_jijii = Module["dynCall_jijii"] =
         Module["asm"]["dynCall_jijii"]).apply(null, arguments);
+    });
+    var dynCall_viiffi = (Module["dynCall_viiffi"] = function () {
+      return (dynCall_viiffi = Module["dynCall_viiffi"] =
+        Module["asm"]["dynCall_viiffi"]).apply(null, arguments);
     });
     var dynCall_iiiji = (Module["dynCall_iiiji"] = function () {
       return (dynCall_iiiji = Module["dynCall_iiiji"] =
@@ -16496,6 +16498,16 @@ var unityFramework = (() => {
         _setThrew(1, 0);
       }
     }
+    function invoke_viffi(index, a1, a2, a3, a4) {
+      var sp = stackSave();
+      try {
+        dynCall_viffi(index, a1, a2, a3, a4);
+      } catch (e) {
+        stackRestore(sp);
+        if (e !== e + 0) throw e;
+        _setThrew(1, 0);
+      }
+    }
     function invoke_viifi(index, a1, a2, a3, a4) {
       var sp = stackSave();
       try {
@@ -16516,16 +16528,6 @@ var unityFramework = (() => {
         _setThrew(1, 0);
       }
     }
-    function invoke_iiiidii(index, a1, a2, a3, a4, a5, a6) {
-      var sp = stackSave();
-      try {
-        return dynCall_iiiidii(index, a1, a2, a3, a4, a5, a6);
-      } catch (e) {
-        stackRestore(sp);
-        if (e !== e + 0) throw e;
-        _setThrew(1, 0);
-      }
-    }
     function invoke_vidi(index, a1, a2, a3) {
       var sp = stackSave();
       try {
@@ -16536,40 +16538,10 @@ var unityFramework = (() => {
         _setThrew(1, 0);
       }
     }
-    function invoke_viidi(index, a1, a2, a3, a4) {
+    function invoke_vifi(index, a1, a2, a3) {
       var sp = stackSave();
       try {
-        dynCall_viidi(index, a1, a2, a3, a4);
-      } catch (e) {
-        stackRestore(sp);
-        if (e !== e + 0) throw e;
-        _setThrew(1, 0);
-      }
-    }
-    function invoke_dii(index, a1, a2) {
-      var sp = stackSave();
-      try {
-        return dynCall_dii(index, a1, a2);
-      } catch (e) {
-        stackRestore(sp);
-        if (e !== e + 0) throw e;
-        _setThrew(1, 0);
-      }
-    }
-    function invoke_viffi(index, a1, a2, a3, a4) {
-      var sp = stackSave();
-      try {
-        dynCall_viffi(index, a1, a2, a3, a4);
-      } catch (e) {
-        stackRestore(sp);
-        if (e !== e + 0) throw e;
-        _setThrew(1, 0);
-      }
-    }
-    function invoke_iiiiiiiiii(index, a1, a2, a3, a4, a5, a6, a7, a8, a9) {
-      var sp = stackSave();
-      try {
-        return dynCall_iiiiiiiiii(index, a1, a2, a3, a4, a5, a6, a7, a8, a9);
+        dynCall_vifi(index, a1, a2, a3);
       } catch (e) {
         stackRestore(sp);
         if (e !== e + 0) throw e;
@@ -16580,16 +16552,6 @@ var unityFramework = (() => {
       var sp = stackSave();
       try {
         return dynCall_iifi(index, a1, a2, a3);
-      } catch (e) {
-        stackRestore(sp);
-        if (e !== e + 0) throw e;
-        _setThrew(1, 0);
-      }
-    }
-    function invoke_vifi(index, a1, a2, a3) {
-      var sp = stackSave();
-      try {
-        dynCall_vifi(index, a1, a2, a3);
       } catch (e) {
         stackRestore(sp);
         if (e !== e + 0) throw e;
@@ -16646,10 +16608,30 @@ var unityFramework = (() => {
         _setThrew(1, 0);
       }
     }
-    function invoke_viiffi(index, a1, a2, a3, a4, a5) {
+    function invoke_iiiidii(index, a1, a2, a3, a4, a5, a6) {
       var sp = stackSave();
       try {
-        dynCall_viiffi(index, a1, a2, a3, a4, a5);
+        return dynCall_iiiidii(index, a1, a2, a3, a4, a5, a6);
+      } catch (e) {
+        stackRestore(sp);
+        if (e !== e + 0) throw e;
+        _setThrew(1, 0);
+      }
+    }
+    function invoke_viidi(index, a1, a2, a3, a4) {
+      var sp = stackSave();
+      try {
+        dynCall_viidi(index, a1, a2, a3, a4);
+      } catch (e) {
+        stackRestore(sp);
+        if (e !== e + 0) throw e;
+        _setThrew(1, 0);
+      }
+    }
+    function invoke_dii(index, a1, a2) {
+      var sp = stackSave();
+      try {
+        return dynCall_dii(index, a1, a2);
       } catch (e) {
         stackRestore(sp);
         if (e !== e + 0) throw e;
@@ -17040,10 +17022,10 @@ var unityFramework = (() => {
         _setThrew(1, 0);
       }
     }
-    function invoke_vifii(index, a1, a2, a3, a4) {
+    function invoke_iiiiiiiiii(index, a1, a2, a3, a4, a5, a6, a7, a8, a9) {
       var sp = stackSave();
       try {
-        dynCall_vifii(index, a1, a2, a3, a4);
+        return dynCall_iiiiiiiiii(index, a1, a2, a3, a4, a5, a6, a7, a8, a9);
       } catch (e) {
         stackRestore(sp);
         if (e !== e + 0) throw e;
@@ -17064,6 +17046,26 @@ var unityFramework = (() => {
       var sp = stackSave();
       try {
         dynCall_viiiifi(index, a1, a2, a3, a4, a5, a6);
+      } catch (e) {
+        stackRestore(sp);
+        if (e !== e + 0) throw e;
+        _setThrew(1, 0);
+      }
+    }
+    function invoke_vifii(index, a1, a2, a3, a4) {
+      var sp = stackSave();
+      try {
+        dynCall_vifii(index, a1, a2, a3, a4);
+      } catch (e) {
+        stackRestore(sp);
+        if (e !== e + 0) throw e;
+        _setThrew(1, 0);
+      }
+    }
+    function invoke_viiffi(index, a1, a2, a3, a4, a5) {
+      var sp = stackSave();
+      try {
+        dynCall_viiffi(index, a1, a2, a3, a4, a5);
       } catch (e) {
         stackRestore(sp);
         if (e !== e + 0) throw e;
@@ -17120,16 +17122,6 @@ var unityFramework = (() => {
         _setThrew(1, 0);
       }
     }
-    function invoke_jiii(index, a1, a2, a3) {
-      var sp = stackSave();
-      try {
-        return dynCall_jiii(index, a1, a2, a3);
-      } catch (e) {
-        stackRestore(sp);
-        if (e !== e + 0) throw e;
-        _setThrew(1, 0);
-      }
-    }
     function invoke_iji(index, a1, a2, a3) {
       var sp = stackSave();
       try {
@@ -17144,26 +17136,6 @@ var unityFramework = (() => {
       var sp = stackSave();
       try {
         return dynCall_jjji(index, a1, a2, a3, a4, a5);
-      } catch (e) {
-        stackRestore(sp);
-        if (e !== e + 0) throw e;
-        _setThrew(1, 0);
-      }
-    }
-    function invoke_viiji(index, a1, a2, a3, a4, a5) {
-      var sp = stackSave();
-      try {
-        dynCall_viiji(index, a1, a2, a3, a4, a5);
-      } catch (e) {
-        stackRestore(sp);
-        if (e !== e + 0) throw e;
-        _setThrew(1, 0);
-      }
-    }
-    function invoke_iiijii(index, a1, a2, a3, a4, a5, a6) {
-      var sp = stackSave();
-      try {
-        return dynCall_iiijii(index, a1, a2, a3, a4, a5, a6);
       } catch (e) {
         stackRestore(sp);
         if (e !== e + 0) throw e;
@@ -17190,10 +17162,30 @@ var unityFramework = (() => {
         _setThrew(1, 0);
       }
     }
+    function invoke_jiii(index, a1, a2, a3) {
+      var sp = stackSave();
+      try {
+        return dynCall_jiii(index, a1, a2, a3);
+      } catch (e) {
+        stackRestore(sp);
+        if (e !== e + 0) throw e;
+        _setThrew(1, 0);
+      }
+    }
     function invoke_iiiijii(index, a1, a2, a3, a4, a5, a6, a7) {
       var sp = stackSave();
       try {
         return dynCall_iiiijii(index, a1, a2, a3, a4, a5, a6, a7);
+      } catch (e) {
+        stackRestore(sp);
+        if (e !== e + 0) throw e;
+        _setThrew(1, 0);
+      }
+    }
+    function invoke_viji(index, a1, a2, a3, a4) {
+      var sp = stackSave();
+      try {
+        dynCall_viji(index, a1, a2, a3, a4);
       } catch (e) {
         stackRestore(sp);
         if (e !== e + 0) throw e;
@@ -17246,16 +17238,6 @@ var unityFramework = (() => {
         _setThrew(1, 0);
       }
     }
-    function invoke_viji(index, a1, a2, a3, a4) {
-      var sp = stackSave();
-      try {
-        dynCall_viji(index, a1, a2, a3, a4);
-      } catch (e) {
-        stackRestore(sp);
-        if (e !== e + 0) throw e;
-        _setThrew(1, 0);
-      }
-    }
     function invoke_viiiji(index, a1, a2, a3, a4, a5, a6) {
       var sp = stackSave();
       try {
@@ -17270,6 +17252,26 @@ var unityFramework = (() => {
       var sp = stackSave();
       try {
         return dynCall_iiji(index, a1, a2, a3, a4);
+      } catch (e) {
+        stackRestore(sp);
+        if (e !== e + 0) throw e;
+        _setThrew(1, 0);
+      }
+    }
+    function invoke_viiji(index, a1, a2, a3, a4, a5) {
+      var sp = stackSave();
+      try {
+        dynCall_viiji(index, a1, a2, a3, a4, a5);
+      } catch (e) {
+        stackRestore(sp);
+        if (e !== e + 0) throw e;
+        _setThrew(1, 0);
+      }
+    }
+    function invoke_iiijii(index, a1, a2, a3, a4, a5, a6) {
+      var sp = stackSave();
+      try {
+        return dynCall_iiijii(index, a1, a2, a3, a4, a5, a6);
       } catch (e) {
         stackRestore(sp);
         if (e !== e + 0) throw e;

@@ -11,8 +11,8 @@ export default function Hero() {
     >
       <div className="text-center">
         <GradualSpacing
-          className="font-display mt-20 text-center text-4xl font-bold -tracking-widest text-white md:text-7xl md:leading-[5rem]"
-          text="Neutrack"
+          className="font-display mt-20 text-center text-2xl font-bold -tracking-widest text-white md:text-7xl md:leading-[5rem]"
+          text="Neutrack AI Cosmos"
         />
         <GradualSpacing
           className="text-center text-sm font-regular -tracking-[0.20em] text-white md:text-lg md:leading-[3rem] pb-4"
