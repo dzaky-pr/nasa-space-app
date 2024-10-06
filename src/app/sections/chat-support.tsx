@@ -27,17 +27,15 @@ export default function ChatSupport() {
   const handleSendMessage = async () => {
     if (!input.trim()) return;
 
-    // Add user message to the chat
     const newMessage = { sender: "user", text: input };
     setMessages((prev) => [...prev, newMessage]);
     setInput("");
 
     try {
-      // Send message to the API
       const response = await sendMessageToGemini(input);
-      const botReply = response.reply || "No response received";
+      const botReply =
+        response.contents[0].parts[0].text || "No response received";
 
-      // Add bot response to the chat
       setMessages((prev) => [...prev, { sender: "bot", text: botReply }]);
       // biome-ignore lint/suspicious/noExplicitAny: <explanation>
       // biome-ignore lint/correctness/noUnusedVariables: <explanation>
