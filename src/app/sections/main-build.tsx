@@ -2,10 +2,10 @@ import { Unity, useUnityContext } from "react-unity-webgl";
 
 export function MainBuild() {
   const { unityProvider, isLoaded, loadingProgression } = useUnityContext({
-    loaderUrl: "build/build-pre-4.loader.js",
-    dataUrl: "build/build-pre-4.data",
-    frameworkUrl: "build/build-pre-4.framework.js",
-    codeUrl: "build/build-pre-4.wasm",
+    loaderUrl: "build/build-pre-5.loader.js",
+    dataUrl: "build/build-pre-5.data",
+    frameworkUrl: "build/build-pre-5.framework.js",
+    codeUrl: "build/build-pre-5.wasm",
   });
 
   return (
@@ -22,7 +22,6 @@ export function MainBuild() {
         unityProvider={unityProvider}
         id="react-unity-webgl-canvas-1"
         style={{
-          visibility: isLoaded ? "visible" : "hidden",
           width: "80%",
           height: "100vh",
         }}
