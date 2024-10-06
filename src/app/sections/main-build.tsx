@@ -2,10 +2,14 @@ import { Unity, useUnityContext } from "react-unity-webgl";
 
 export function MainBuild() {
   const { unityProvider, isLoaded, loadingProgression } = useUnityContext({
-    loaderUrl: "build/build-1.loader.js",
-    dataUrl: "build/build-1.data",
-    frameworkUrl: "build/build-1.framework.js",
-    codeUrl: "build/build-1.wasm",
+    loaderUrl:
+      "https://storage.googleapis.com/bucket-tolol-2/webgl/Build/Build%201.0.loader.js",
+    dataUrl:
+      "https://storage.googleapis.com/bucket-tolol-2/webgl/Build/Build%201.0.data",
+    frameworkUrl:
+      "https://storage.googleapis.com/bucket-tolol-2/webgl/Build/Build%201.0.framework.js",
+    codeUrl:
+      "https://storage.googleapis.com/bucket-tolol-2/webgl/Build/Build%201.0.wasm",
   });
 
   return (
