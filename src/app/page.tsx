@@ -1,7 +1,9 @@
 "use client";
 
 import Layout from "@/layouts/Layout";
+import ChatSupport from "./sections/chat-support";
 import ChatBot from "./sections/chatbot";
+import Constellations from "./sections/constellations";
 import { BentoGallery } from "./sections/gallery";
 import Hero from "./sections/hero";
 import LookBackGraph from "./sections/lookback";
@@ -14,6 +16,7 @@ export default function Home() {
   return (
     <>
       <Layout withFooter withNavbar>
+        <ChatSupport />
         <ChatBot />
         <Hero />
         <MainBuild />
@@ -21,6 +24,7 @@ export default function Home() {
         <World />
         <Neutrack />
         <Moonface />
+        <Constellations />
         <BentoGallery />
       </Layout>
     </>

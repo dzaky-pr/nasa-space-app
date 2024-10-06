@@ -35,7 +35,7 @@ export function Neutrack() {
             href="https://memoryreboot.pythonanywhere.com/"
             openNewTab
           >
-            Click for GPS tracker!
+            Click for the GPS tracker!
           </ButtonLink>
         </div>
 
