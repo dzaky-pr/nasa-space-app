@@ -5,12 +5,13 @@ import Globe, { GlobeMethods } from "react-globe.gl";
 
 export default function GlobeGl() {
   const globeElm = React.useRef<GlobeMethods | undefined>(undefined);
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   const [hoverD, setHoverD] = React.useState<any>();
   const [countries, setCountries] = React.useState({
     total_waste: 0,
     features: [],
   });
-  const [isMobile, setIsMobile] = React.useState(false);
+  const [, setIsMobile] = React.useState(false);
   const [globeSize, setGlobeSize] = React.useState({
     width: 0,
     height: 0,
@@ -72,17 +73,12 @@ export default function GlobeGl() {
       height={globeSize.height}
       polygonAltitude={(d) => (d === hoverD ? 0.1 : 0.01)}
       polygonsTransitionDuration={300}
+      // biome-ignore lint/suspicious/noExplicitAny: <explanation>
       polygonLabel={(p: any) => {
         return `
             <div class="bg-gray-800 text-white p-4 rounded-xl shadow">
                 <p>${p.properties.NAME}</p>
-                <p>${
-                  p.properties.waste_emission == 0
-                    ? "-"
-                    : new Intl.NumberFormat("en-us").format(
-                        p.properties.waste_emission
-                      ) + " metric tons"
-                }</p>
+                <p>${p.properties.waste_emission == 0 ? "-" : new Intl.NumberFormat("en-us").format(p.properties.waste_emission) + " metric tons"}</p>
             </div>
           `;
       }}
