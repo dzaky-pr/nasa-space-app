@@ -20,6 +20,7 @@ export function MainBuild() {
       )}
       <Unity
         unityProvider={unityProvider}
+        id="react-unity-webgl-canvas-1"
         style={{
           visibility: isLoaded ? "visible" : "hidden",
           width: "90%",
