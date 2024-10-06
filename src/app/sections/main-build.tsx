@@ -11,7 +11,7 @@ export function MainBuild() {
   return (
     <section
       id="main-build"
-      className="z-[999] flex justify-center  max-w-screen-xl flex-col items-center w-full h-full mx-auto p-4"
+      className="z-[999] border-[0.5px] rounded-lg border-gray-700 flex justify-center  max-w-screen-xl flex-col items-center w-full h-full mx-auto p-4 my-8"
     >
       {!isLoaded && (
         <p className="text-white">

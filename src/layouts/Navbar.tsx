@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="fixed top-0 start-0 z-40 w-full border-b-[0.5px] border-gray-400 backdrop-blur-lg py-3">
+    <nav className="fixed top-0 start-0 z-40 w-full border-b-[0.5px] border-gray-700 backdrop-blur-lg py-3">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 ">
         <NextImage
           src="/logo.png"

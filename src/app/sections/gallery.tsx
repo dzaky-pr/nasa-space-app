@@ -1,5 +1,9 @@
-import { CalendarIcon, FileTextIcon } from "@radix-ui/react-icons";
-import { BellIcon, Share2Icon } from "lucide-react";
+import {
+  BookMarked,
+  MonitorCheck,
+  UserRoundCheck,
+  UsersRound,
+} from "lucide-react";
 
 import { BentoCard, BentoGrid } from "@/components/BentoGrid";
 
@@ -7,9 +11,10 @@ import { TextRevealByWord } from "@/components/text/TextReveal";
 
 const features = [
   {
-    Icon: FileTextIcon,
-    name: "Save your files",
-    description: "We automatically save your files as you type.",
+    Icon: UserRoundCheck,
+    name: "User Feedback",
+    description:
+      "Mr. Eko Purwanto as Principal of Visual Environment Children School of Surabaya",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-1",
@@ -27,9 +32,9 @@ const features = [
     ),
   },
   {
-    Icon: BellIcon,
-    name: "Notifications",
-    description: "Get notified when something happens.",
+    Icon: UsersRound,
+    name: "Social Service ",
+    description: "In Collaboration with Computer Vision Laboratory.",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
@@ -47,9 +52,9 @@ const features = [
     ),
   },
   {
-    Icon: Share2Icon,
-    name: "Integrations",
-    description: "Supports 100+ integrations and counting.",
+    Icon: BookMarked,
+    name: "Education",
+    description: "Educating on how to using Neutrack AI Glove.",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
@@ -67,9 +72,9 @@ const features = [
     ),
   },
   {
-    Icon: CalendarIcon,
-    name: "Calendar",
-    description: "Use the calendar to filter your files by date.",
+    Icon: MonitorCheck,
+    name: "Neutrack AI Glove Hands On",
+    description: "How Neutrack AI is used.",
     className: "col-span-3 lg:col-span-1",
     href: "#",
     cta: "Learn more",
@@ -90,7 +95,7 @@ const features = [
 
 export function BentoGallery() {
   return (
-    <section className="p-4 mx-auto max-w-screen-xl" id="impact">
+    <section className="p-4 mx-auto max-w-screen-xl my-8" id="impact">
       <div className="z-10 flex min-h-64 items-center justify-center rounded-lg bg-black">
         <TextRevealByWord text="Neutrack's Partnership with SMPLB YPAB Surabaya." />
       </div>

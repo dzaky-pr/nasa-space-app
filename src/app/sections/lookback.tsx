@@ -81,8 +81,8 @@ export function LookBackGraph() {
   };
 
   return (
-    <section id="cosmic-chart" className="mx-auto p-4  max-w-screen-xl">
-      <Card className="text-white   border-gray-700 mx-auto mt-2 ">
+    <section id="cosmic-chart" className="mx-auto p-4 my-8 max-w-screen-xl">
+      <Card className="text-white border-[0.5px] rounded-lg border-gray-700 mx-auto mt-2 ">
         <CardHeader>
           <CardTitle>Cosmic Lookback Chart</CardTitle>
           <CardDescription>Events from the Big Bang to Today</CardDescription>

@@ -49,8 +49,11 @@ export default function World() {
   }, [isMobile]);
 
   return (
-    <section id="mission">
-      <div className="w-max mx-auto  max-w-screen-xl overflow-hidden">
+    <section
+      id="mission my-8"
+      className="mx-auto rounded-lg max-w-screen-xl border-[0.5px] border-gray-700 p-4"
+    >
+      <div className="w-max overflow-hidden ">
         <Globe
           ref={globeElm}
           onGlobeReady={() => {
