@@ -11,7 +11,7 @@ export function MainBuild() {
   return (
     <section
       id="main-build"
-      className="z-[999] border-[0.5px] rounded-lg border-gray-700 flex justify-center  max-w-screen-xl flex-col items-center w-full h-full mx-auto p-4 my-8"
+      className="z-[999] border-[0.5px] px-4  rounded-lg border-gray-700 flex justify-center  max-w-screen-xl flex-col items-center w-full h-full sm:mx-auto p-4 my-8"
     >
       {!isLoaded && (
         <p className="text-white">
@@ -23,7 +23,7 @@ export function MainBuild() {
         id="react-unity-webgl-canvas-1"
         style={{
           visibility: isLoaded ? "visible" : "hidden",
-          width: "90%",
+          width: "80%",
           height: "100vh",
         }}
       />

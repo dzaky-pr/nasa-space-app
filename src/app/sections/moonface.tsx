@@ -30,9 +30,9 @@ export default function Moonface() {
   return (
     <section
       id="moonface"
-      className="my-16 mx-auto rounded-lg p-4 max-w-screen-xl border-[0.5px] border-gray-700"
+      className="mx-4 my-16 sm:mx-auto rounded-lg p-4 max-w-screen-xl border-[0.5px] border-gray-700"
     >
-      <div className="gap-8 grid grid-cols-2">
+      <div className="gap-8 grid grid-cols-1 lg:grid-cols-2">
         <BentoGrid>
           {features.map((feature, idx) => (
             <BentoCard key={idx} {...feature} />

@@ -12,9 +12,9 @@ export function Neutrack() {
   return (
     <section
       id="moonface"
-      className="my-16 rounded-lg mx-auto p-4 max-w-screen-xl border-[0.5px] border-gray-700"
+      className="my-16 mx-4 rounded-lg sm:mx-auto p-4 max-w-screen-xl border-[0.5px] border-gray-700"
     >
-      <div className="gap-8 grid grid-cols-2">
+      <div className="gap-8 flex flex-col-reverse lg:grid lg:grid-cols-2">
         <div className="flex flex-col gap-2">
           <h1 className="text-center text-sm font-regular text-white md:text-lg pb-4">
             Neutrack AI Glove

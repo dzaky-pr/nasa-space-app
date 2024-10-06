@@ -2,12 +2,13 @@ import { RainbowButton } from "@/components/buttons/RainbowButton";
 import { Particles } from "@/components/effects/Particles";
 
 import { GradualSpacing } from "@/components/text/GradualSpacing";
+import Link from "next/link";
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="relative justify-center flex overflow-hidden w-full max-w-screen-xl mx-auto p-4 md:py-8"
+      className="relative justify-center flex overflow-hidden w-full max-w-screen-xl mx-auto p-4 pb-20 pt-28"
     >
       <div className="text-center">
         <GradualSpacing
@@ -19,7 +20,9 @@ export default function Hero() {
           text="Where Science Fiction Meets Reality"
         />
 
-        <RainbowButton>Learn more</RainbowButton>
+        <Link href="#cosmic-chart">
+          <RainbowButton>Learn more</RainbowButton>
+        </Link>
       </div>
 
       <Particles
