@@ -1,6 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 
-const geminiApiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent';
+const geminiApiUrl =
+  "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent";
 
 export const sendMessageToGemini = async (
   prompt = `
@@ -11,7 +12,7 @@ You are a virtual assistant chatbot called "Neutrack Astrobot". If the user asks
 4. *A Universe of Sound - Chandra*: https://chandra.cfa.harvard.edu/sound/
 5. *James Webb Telescope*: https://science.nasa.gov/mission/webb/
 6. Overview of the Universe: https://science.nasa.gov/universe/overview/
-`
+`,
 ) => {
   try {
     const response = await axios.post(
@@ -29,13 +30,13 @@ You are a virtual assistant chatbot called "Neutrack Astrobot". If the user asks
       },
       {
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-      }
+      },
     );
     return response.data;
   } catch (error) {
-    console.error('Error sending message to Gemini API:', error);
+    console.error("Error sending message to Gemini API:", error);
     throw error;
   }
 };
