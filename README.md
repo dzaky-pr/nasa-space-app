@@ -1,5 +1,9 @@
 # Next-JS Template Repository
 
+## Preview
+
+https://github.com/user-attachments/assets/116a4c9e-5ec3-4c46-8af3-4e173154f719
+
 ## Getting Started
 
 ### 1. Clone this repo using one of the two ways:
