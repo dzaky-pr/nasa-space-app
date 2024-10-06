@@ -1,15 +1,12 @@
 import { Unity, useUnityContext } from "react-unity-webgl";
 
 export function MainBuild() {
-  const { unityProvider, isLoaded, loadingProgression, initialisationError } =
-    useUnityContext({
-      loaderUrl: "build/build-pre-3.loader.js",
-      dataUrl: "build/build-pre-3.data",
-      frameworkUrl: "build/build-pre-3.framework.js",
-      codeUrl: "build/build-pre-3.wasm",
-    });
-
-  console.log(initialisationError, isLoaded);
+  const { unityProvider, isLoaded, loadingProgression } = useUnityContext({
+    loaderUrl: "build/neutrack.loader.js",
+    dataUrl: "build/neutrack.data",
+    frameworkUrl: "build/neutrack.framework.js",
+    codeUrl: "build/neutrack.wasm",
+  });
 
   return (
     <section
