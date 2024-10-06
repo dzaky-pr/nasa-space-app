@@ -38,6 +38,7 @@ export function Neutrack() {
           </p>
         )}
         <Unity
+          id="react-unity-webgl-canvas-2"
           unityProvider={unityProvider}
           style={{
             visibility: isLoaded ? "visible" : "hidden",

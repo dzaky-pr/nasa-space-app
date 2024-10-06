@@ -1,24 +1,14 @@
 import ButtonLink from "@/components/links/ButtonLink";
 import { NumberTicker } from "@/components/text/NumberTicker";
+import dynamic from "next/dynamic";
 import * as React from "react";
-import Globe from "react-globe.gl";
 
-export const GLOBE_TEXTURE =
-  "//unpkg.com/three-globe/example/img/earth-blue-marble.jpg";
+const GlobeGl = dynamic(() => import("./GlobeGl"));
 
 export default function World() {
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-  const globeElm = React.useRef<any>();
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-  const [hoverD, setHoverD] = React.useState<any>();
   const [countries, setCountries] = React.useState({
     total_waste: 0,
     features: [],
-  });
-  const [isMobile, setIsMobile] = React.useState(window.innerWidth < 1024);
-  const [globeSize, setGlobeSize] = React.useState({
-    width: (10 / 12) * window.innerWidth,
-    height: window.innerHeight,
   });
 
   React.useEffect(() => {
@@ -30,62 +20,14 @@ export default function World() {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 1024);
-      setGlobeSize({
-        width: (10 / 12) * window.innerWidth,
-        height: isMobile ? window.innerHeight / 1.5 : window.innerHeight,
-      });
-    };
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [isMobile]);
+  }, []);
 
   return (
     <section
       id="mission my-8"
       className="mx-auto rounded-lg max-w-screen-xl border-[0.5px] border-gray-700 p-4"
     >
-      <div className="w-max overflow-hidden ">
-        <Globe
-          ref={globeElm}
-          onGlobeReady={() => {
-            if (globeElm.current) {
-              globeElm.current.controls().autoRotate = true;
-              globeElm.current.controls().autoRotateSpeed = 0.1;
-              globeElm.current.controls().minDistance = 250.0;
-            }
-          }}
-          lineHoverPrecision={0}
-          polygonSideColor={() => "rgba(0, 0, 0, 0.8)"}
-          polygonStrokeColor={() => "#111"}
-          globeImageUrl={GLOBE_TEXTURE}
-          backgroundColor="#000000"
-          onPolygonHover={setHoverD}
-          polygonsData={countries.features}
-          width={globeSize.width}
-          height={globeSize.height}
-          polygonAltitude={(d) => (d === hoverD ? 0.1 : 0.01)}
-          polygonsTransitionDuration={300}
-          // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-          polygonLabel={(p: any) => {
-            return `
-            <div class="bg-gray-800 text-white p-4 rounded-xl shadow">
-                <p>${p.properties.NAME}</p>
-                <p>${p.properties.waste_emission == 0 ? "-" : new Intl.NumberFormat("en-us").format(p.properties.waste_emission) + " metric tons"}</p>
-            </div>
-          `;
-          }}
-        />
-      </div>
-
+      <GlobeGl />
       <div className="pb-24 flex flex-col gap-8 items-center">
         <div className="text-center space-y-4 px-6">
           <p className="whitespace-pre-wrap text-4xl md:text-8xl font-black text-white">
