@@ -18,7 +18,7 @@ export default function Home() {
         <Hero />
         <MainBuild />
         <LookBackGraph />
-        {/* <World /> */}
+        <World />
         <Neutrack />
         <Moonface />
         <BentoGallery />
