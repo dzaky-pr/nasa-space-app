@@ -4,7 +4,7 @@ import { IconType } from "react-icons";
 import UnstyledLink, {
   UnstyledLinkProps,
 } from "@/components/links/UnstyledLink";
-import clsxm from "@/lib/clsxm";
+import clsxm from "@/libs/clsxm";
 
 const IconLinkVariant = [
   "blue",

@@ -1,17 +1,13 @@
 import { ReactNode } from "react";
 
 import Typography from "@/components/Typography";
-import clsxm from "@/lib/clsxm";
+import clsxm from "@/libs/clsxm";
 
 export default function LabelText({
   children,
   labelTextClasname,
   required,
-}: {
-  children: ReactNode;
-  labelTextClasname?: string;
-  required?: boolean;
-}) {
+}: { children: ReactNode; labelTextClasname?: string; required?: boolean }) {
   return (
     <label>
       <Typography

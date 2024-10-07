@@ -1,4 +1,4 @@
-import clsxm from "@/lib/clsxm";
+import clsxm from "@/libs/clsxm";
 import * as React from "react";
 
 const Card = React.forwardRef<

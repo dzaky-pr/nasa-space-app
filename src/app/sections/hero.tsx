@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative justify-center flex overflow-hidden w-full max-w-screen-xl mx-auto p-4 pb-20 pt-28"
+      className="relative justify-center flex overflow-hidden w-full max-w-screen-xl mx-auto p-4 py-20"
     >
       <div className="text-center">
         <GradualSpacing

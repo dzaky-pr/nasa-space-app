@@ -12,14 +12,14 @@ export function Neutrack() {
   return (
     <section
       id="moonface"
-      className="my-16 mx-4 rounded-lg sm:mx-auto p-4 max-w-screen-xl border-[0.5px] border-gray-700"
+      className="my-16 mx-4 rounded-lg sm:mx-auto p-6 max-w-screen-xl border-[0.5px] border-gray-700"
     >
       <div className="gap-8 flex flex-col-reverse lg:grid lg:grid-cols-2">
         <div className="flex flex-col gap-2">
-          <h1 className="text-center text-sm font-regular text-white md:text-lg pb-4">
+          <h1 className="text-center text-lg font-regular text-white md:text-2xl pb-0 font-semibold">
             Neutrack AI Glove
           </h1>
-          <p className="text-white text-justify py-8 ">
+          <p className="text-white text-justify py-4 ">
             Imagine exploring the vast wonders of deep space with just your
             voice—where distant galaxies, glowing nebulae, and cosmic phenomena
             come to life through rich descriptions. Our voice-activated
@@ -27,13 +27,14 @@ export function Neutrack() {
             for visually impaired students, making the stars accessible like
             never before. From the depths of the universe to your fingertips,
             you can embark on a celestial journey, uncovering the beauty of the
-            cosmos without barriers. Whether you’re a student or a curious
+            cosmos without barriers. Whether you're a student or a curious
             explorer, the universe is now yours to discover, guided by your
             voice.
           </p>
           <ButtonLink
             href="https://memoryreboot.pythonanywhere.com/"
             openNewTab
+            className="cursor-alias"
           >
             Click for the GPS tracker!
           </ButtonLink>

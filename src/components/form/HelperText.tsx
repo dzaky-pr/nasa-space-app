@@ -1,15 +1,12 @@
 import { ReactNode } from "react";
 
 import Typography from "@/components/Typography";
-import clsxm from "@/lib/clsxm";
+import clsxm from "@/libs/clsxm";
 
 export default function HelperText({
   children,
   helperTextClassName,
-}: {
-  children: ReactNode;
-  helperTextClassName?: string;
-}) {
+}: { children: ReactNode; helperTextClassName?: string }) {
   return (
     <div className="flex space-x-1">
       <Typography

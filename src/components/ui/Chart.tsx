@@ -1,6 +1,6 @@
 "use client";
 
-import clsxm from "@/lib/clsxm";
+import clsxm from "@/libs/clsxm";
 import * as React from "react";
 import * as RechartsPrimitive from "recharts";
 

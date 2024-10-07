@@ -14,7 +14,7 @@ import {
   ExpandableChatFooter,
   ExpandableChatHeader,
 } from "@/components/ui/chat/expandable-chat";
-import { sendMessageToGemini } from "@/lib/geminiApi"; // Import API handler
+import { sendMessageToGemini } from "@/libs/geminiApi"; // Import API handler
 import { Send } from "lucide-react";
 import { useState } from "react";
 

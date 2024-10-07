@@ -3,7 +3,7 @@ import * as React from "react";
 import UnstyledLink, {
   UnstyledLinkProps,
 } from "@/components/links/UnstyledLink";
-import clsxm from "@/lib/clsxm";
+import clsxm from "@/libs/clsxm";
 
 const primaryLinkSize = ["medium", "small"] as const;
 const primaryLinkVariant = ["blue", "secondary", "green", "red"] as const;

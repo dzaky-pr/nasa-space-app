@@ -26,11 +26,11 @@ const features = [
   },
 ];
 
-export default function Moonface() {
+export default function Moonphase() {
   return (
     <section
       id="moonface"
-      className="mx-4 my-16 sm:mx-auto rounded-lg p-4 max-w-screen-xl border-[0.5px] border-gray-700"
+      className="mx-4 my-16 sm:mx-auto rounded-lg p-6 max-w-screen-xl border-[0.5px] border-gray-700"
     >
       <div className="gap-8 grid grid-cols-1 lg:grid-cols-2">
         <BentoGrid>
@@ -39,10 +39,10 @@ export default function Moonface() {
           ))}
         </BentoGrid>
         <div className="flex flex-col gap-2">
-          <h1 className="text-center text-sm font-regular text-white md:text-lg pb-4">
-            Neutrack Moon Face Prediction Model
+          <h1 className="text-center text-lg font-regular text-white md:text-2xl pb-0 font-semibold">
+            Neutrack Moon Phase Prediction Model
           </h1>
-          <p className="text-white text-justify py-8 ">
+          <p className="text-white text-justify py-4 ">
             This innovative computer vision model brings the moon's phases
             closer to everyone, especially those who cannot see them. Inspired
             by NeuTrack, a device designed to help the visually impaired connect
@@ -52,10 +52,11 @@ export default function Moonface() {
             sight, offering a new way to experience the night sky.
           </p>
           <ButtonLink
+            className="cursor-alias"
             href="https://huggingface.co/spaces/SteelAwsm/testgrad"
             openNewTab
           >
-            Let's try the machine!
+            Let's try our model!
           </ButtonLink>
         </div>
       </div>

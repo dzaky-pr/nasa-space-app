@@ -24,8 +24,14 @@ const config: Config = {
         rainbow: 'rainbow var(--speed, 2s) infinite linear',
         'background-position-spin': 'background-position-spin 3000ms infinite alternate',
         pulse: 'pulse var(--duration) ease-out infinite',
+        gradient: 'gradient 8s linear infinite',
       },
       keyframes: {
+        gradient: {
+          to: {
+            backgroundPosition: 'var(--bg-size) 0',
+          },
+        },
         'background-position-spin': {
           '0%': { backgroundPosition: 'top center' },
           '100%': { backgroundPosition: 'bottom center' },

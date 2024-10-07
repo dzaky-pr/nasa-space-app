@@ -39,7 +39,11 @@ export default function World() {
           </p>
         </div>
 
-        <ButtonLink href="https://forms.gle/pxdyea2NgSgLVtK3A" openNewTab>
+        <ButtonLink
+          className="cursor-alias"
+          href="https://forms.gle/pxdyea2NgSgLVtK3A"
+          openNewTab
+        >
           Save the earth now!
         </ButtonLink>
       </div>

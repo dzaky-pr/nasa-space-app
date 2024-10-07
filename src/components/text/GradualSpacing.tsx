@@ -1,6 +1,6 @@
 "use client";
 
-import clsxm from "@/lib/clsxm";
+import clsxm from "@/libs/clsxm";
 import { AnimatePresence, Variants, motion } from "framer-motion";
 
 interface GradualSpacingProps {

@@ -1,6 +1,6 @@
 "use client";
 
-import clsxm from "@/lib/clsxm";
+import clsxm from "@/libs/clsxm";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import * as React from "react";
 

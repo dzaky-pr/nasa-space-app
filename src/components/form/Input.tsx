@@ -7,7 +7,7 @@ import Typography from "@/components/Typography";
 import ErrorMessage from "@/components/form/ErrorMessage";
 import HelperText from "@/components/form/HelperText";
 import LabelText from "@/components/form/LabelText";
-import clsxm from "@/lib/clsxm";
+import clsxm from "@/libs/clsxm";
 
 export type InputProps = {
   id: string;

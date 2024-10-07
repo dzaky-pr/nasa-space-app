@@ -1,5 +1,5 @@
 import { Textarea } from "@/components/ui/textarea";
-import { cn } from "@/lib/utils";
+import { cn } from "@/libs/utils";
 import * as React from "react";
 
 interface ChatInputProps

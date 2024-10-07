@@ -1,6 +1,6 @@
 "use client";
 
-import clsxm from "@/lib/clsxm";
+import clsxm from "@/libs/clsxm";
 import createGlobe, { COBEOptions } from "cobe";
 import { useCallback, useEffect, useRef, useState } from "react";
 

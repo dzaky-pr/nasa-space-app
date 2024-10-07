@@ -2,7 +2,7 @@ import * as React from "react";
 import { IconType } from "react-icons";
 import { ImSpinner } from "react-icons/im";
 
-import clsxm from "@/lib/clsxm";
+import clsxm from "@/libs/clsxm";
 
 const ButtonVariant = [
   "blue",

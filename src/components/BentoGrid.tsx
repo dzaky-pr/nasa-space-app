@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 // import Button from '@/components/buttons/Button';
-import clsxm from "@/lib/clsxm";
+import clsxm from "@/libs/clsxm";
 
 const BentoGrid = ({
   children,

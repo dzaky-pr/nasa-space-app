@@ -3,7 +3,7 @@
 import Image, { ImageProps } from "next/image";
 import * as React from "react";
 
-import clsxm from "@/lib/clsxm";
+import clsxm from "@/libs/clsxm";
 
 type NextImageProps = {
   useSkeleton?: boolean;

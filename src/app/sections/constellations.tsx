@@ -30,14 +30,14 @@ export default function Constellations() {
   return (
     <section
       id="moonface"
-      className="mx-4 my-16 sm:mx-auto rounded-lg p-4 max-w-screen-xl border-[0.5px] border-gray-700"
+      className="mx-4 my-16 sm:mx-auto rounded-lg p-6 max-w-screen-xl border-[0.5px] border-gray-700"
     >
       <div className="gap-8 flex flex-col-reverse lg:grid lg:grid-cols-2">
-        <div className="flex flex-col gap-2">
-          <h1 className="text-center text-sm font-regular text-white md:text-lg pb-4">
+        <div className="flex flex-col gap-2 ">
+          <h1 className="text-center text-lg font-regular text-white md:text-2xl pb-0 font-semibold">
             Neutrack Constellation Prediction Model
           </h1>
-          <p className="text-white text-justify py-8 ">
+          <p className="text-white text-justify py-4">
             This computer vision model is designed to identify constellations
             from images of the night sky. As an additional concept for NeuTrack,
             a device aimed at making the universe more accessible, this model
@@ -50,9 +50,10 @@ export default function Constellations() {
           </p>
           <ButtonLink
             href="https://huggingface.co/spaces/SteelAwsm/constellationclassification"
+            className="cursor-alias"
             openNewTab
           >
-            Let's try the machine!
+            Let's try our model!
           </ButtonLink>
         </div>
 

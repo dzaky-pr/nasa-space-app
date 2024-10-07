@@ -2,7 +2,7 @@ import axios, { AxiosError } from "axios";
 import { GetServerSidePropsContext } from "next/types";
 import Cookies from "universal-cookie";
 
-import { getToken } from "@/lib/cookies";
+import { getToken } from "@/libs/cookies";
 import { UninterceptedApiError } from "@/types/api";
 const context = <GetServerSidePropsContext>{};
 

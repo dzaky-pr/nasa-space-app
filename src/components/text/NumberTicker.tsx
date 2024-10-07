@@ -1,6 +1,6 @@
 "use client";
 
-import clsxm from "@/lib/clsxm";
+import clsxm from "@/libs/clsxm";
 import { useInView, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef } from "react";
 
