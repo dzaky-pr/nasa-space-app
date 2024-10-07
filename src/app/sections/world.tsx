@@ -24,7 +24,7 @@ export default function World() {
 
   return (
     <section
-      id="mission my-8"
+      id="mission"
       className="sm:mx-auto mx-4 rounded-lg max-w-screen-xl border-[0.5px] border-gray-700 p-4"
     >
       <GlobeGl />
