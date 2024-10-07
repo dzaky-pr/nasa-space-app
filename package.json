@@ -16,7 +16,8 @@
     "validate": "pnpm check && pnpm typecheck",
     "prepare": "husky install",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "write-all": "pnpm run check:write && pnpm run format:write && pnpm run lint:write"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.1",
