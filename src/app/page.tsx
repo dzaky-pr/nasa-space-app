@@ -9,6 +9,7 @@ import Hero from "./sections/hero";
 import LookBackGraph from "./sections/lookback";
 import { MainBuild } from "./sections/main-build";
 
+import Documentation from "./sections/documentation";
 import Moonphase from "./sections/moonphase";
 import { Neutrack } from "./sections/neutrack";
 import World from "./sections/world";
@@ -27,6 +28,7 @@ export default function Home() {
         <Moonphase />
         <Constellations />
         <BentoGallery />
+        <Documentation />
       </Layout>
     </>
   );
