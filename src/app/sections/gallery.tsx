@@ -21,7 +21,7 @@ const features = [
     background: (
       <div className="absolute h-full w-full [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] ">
         <video
-          src="https://res.cloudinary.com/dzaky/video/upload/v1728139295/wawancara_e3xyoa.mp4"
+          src="./video/wawancara.MP4"
           autoPlay
           loop
           muted
@@ -41,7 +41,7 @@ const features = [
     background: (
       <div className="absolute h-full w-full [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] ">
         <video
-          src="https://res.cloudinary.com/dzaky/video/upload/v1728151015/foto-bareng-cut_pubfyw.mp4"
+          src="./video/foto-bareng-cut.MP4"
           autoPlay
           loop
           muted
@@ -61,7 +61,7 @@ const features = [
     background: (
       <div className="absolute h-full w-full [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] ">
         <video
-          src="https://res.cloudinary.com/dzaky/video/upload/v1728139290/demo-pakai_vgkqjg.mp4"
+          src="./video/demo-pakai.MP4"
           autoPlay
           loop
           muted
@@ -81,7 +81,7 @@ const features = [
     background: (
       <div className="absolute h-full w-full [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] ">
         <video
-          src="https://res.cloudinary.com/dzaky/video/upload/v1728139290/fira-and-neutrack_ndwmp0.mp4"
+          src="./video/fira-and-neutrack.MP4"
           autoPlay
           loop
           muted

@@ -14,7 +14,7 @@ const features = [
     background: (
       <div className="absolute h-full w-full [mask-image:linear-gradient(to_top,transparent_5%,#000_100%)] ">
         <video
-          src="https://res.cloudinary.com/dzaky/video/upload/v1728227378/constellations-ml_c4ay13.mp4"
+          src="./video/constellations-model.mp4"
           autoPlay
           loop
           muted
